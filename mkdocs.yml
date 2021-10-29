@@ -1,0 +1,125 @@
+site_name: Java 项目工程化开发指南
+site_url: https://qiaoyz0518.github.io/java-project-guidelines/
+site_description: >-
+  Java开发组技术文档目前规划建设中，初期建设基本的入门步骤，代码风格，工具集合等，后期将完善技术积累等过程
+
+# theme
+theme:
+  name: material   # readthedocs, material, mkdocs(默认)
+  langage: zh
+  favicon: assets/images/favicon.ico
+  highlightjs: true
+  hljs_languages:
+  - yaml
+  - rust
+  features:
+    - search.highlight
+    - navigation.sections
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - content.code.annotate
+    - content.tabs.link
+    # - header.autohide
+    # - navigation.expand
+    # - navigation.indexes
+    # - navigation.instant
+    - navigation.tracking
+    - search.share
+    - search.suggest
+    # - toc.integrate    
+  palette:  # 主题模式切换。
+    - media: "(prefers-color-scheme: light)"  # 跟随系统主题模式
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline  # material/toggle-switch-off-outline, material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch # material/toggle-switch, material/weather-night
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+# Repository
+repo_name: lwpk110/tendata-javadoc
+repo_url: https://github.com/lwpk110/tendata-javadoc
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2021-2300 Tendata Javer
+
+# Plugins
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+  - minify:
+      minify_html: true
+
+# Customization
+extra:
+  disqus: !ENV [DISQUS_ACCOUNT,"tendata-doc"]
+  analytics:
+    provider: google
+    property: !ENV [GOOGLE_ANALYTICS_KEY,"G-DF2YRJ16JT"]
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tendata
+    - icon: material/web
+      link: https://tendata.cn
+    - icon: material/email
+      link: "mailto: wei.lu@tendata.cn"
+    - icon: fontawesome/brands/qq
+      link: http://wpa.qq.com/msgrd?v=3&uin=250397846&site=qq&menu=yes
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid-experimental
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde    
+
+# 导航
+nav:
+    - 快速上手: quick_start.md
+    - 开发准备: preparation/index.md
+    - Java 规范:
+      - 语言规范: standard/language_rules.md
+      - 分格规范: standard/style_rules.md
+      - 其他规范: standard/other_standard.md
+    - 工程化: project/index.md
+    - 开发实践: practice/index.md
