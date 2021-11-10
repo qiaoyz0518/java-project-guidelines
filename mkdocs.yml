@@ -60,7 +60,7 @@ plugins:
 
 # Customization
 extra:
-  disqus: !ENV [DISQUS_ACCOUNT,"tendata-doc"]
+  # disqus: !ENV [DISQUS_ACCOUNT,"tendata-doc"]
   analytics:
     provider: google
     property: !ENV [GOOGLE_ANALYTICS_KEY,"G-DF2YRJ16JT"]
@@ -76,6 +76,7 @@ extra:
 
 # Extensions
 markdown_extensions:
+  - pymdownx.snippets
   - admonition
   - abbr
   - attr_list
@@ -83,35 +84,37 @@ markdown_extensions:
   - footnotes
   - meta
   - md_in_html
+  - pymdownx.snippets:
+      base_path: docs
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed
+  - pymdownx.tilde 
   - toc:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.caret
-  - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: squidfunk
       repo: mkdocs-material
-  - pymdownx.mark
-  - pymdownx.smartsymbols
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid-experimental
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde    
 
 # 导航
 nav:
@@ -119,7 +122,7 @@ nav:
     - 开发准备: preparation/index.md
     - Java 规范:
       - 语言规范: standard/language_rules.md
-      - 分格规范: standard/style_rules.md
+      - 风格规范: standard/style_rules.md
       - 其他规范: standard/other_standard.md
     - 工程化: project/index.md
     - 开发实践: practice/index.md
