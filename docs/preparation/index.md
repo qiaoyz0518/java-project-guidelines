@@ -28,7 +28,8 @@
 
 ### `SDKMAN`（推荐）
 
-`SDKMAN` JVM 平台 环境集成管理工具，可以使用它很方便各 版本 sdk的管理工作。
+`SDKMAN` 是一个JVM 平台环境集成管理工具，可以使用它很方便对各版本 sdk的进行管理。例如 `jdk`， `gradle`， `maven`等众多jvm工具版本的切换
+安装，卸载等。
 
 SDKMAN! 是一个在 unix 系统环境下，为一些 软件工具包 管理多版本问题的工具。提供了一个方便的命令行接口(CLI)， 方便执行 “安装”, “切换”，
  “移除”，“列出” 相关版本工具包的命令。它以前被称为 GVM，即 Groovy 环境管理器，其灵感来自于 Ruby 社区普遍使用的非常有用的 RVM 
@@ -38,6 +39,9 @@ SDKMAN! 是一个在 unix 系统环境下，为一些 软件工具包 管理多�
 - 支持 N 多的 JVM 工具包。例如  Java、 Groovy、 Scala、 Kotlin 和 Ceylon。Ant、 Gradle、 Grails、
 Maven、 SBT、 Spark、 Spring Boot、 Vert.x 等。
 - 轻量级.用 bash 编写，只需要 curl 和 zip/unzip 就可以出现在系统中，甚至可以与 ZSH 一起工作。
+
+!!! note "提示"
+    windows 环境开发需要安装 类似于 `WSL` 一样的linux 集成环境，如果缺乏linux开发经验, 开发环境集成请参阅 SDK [单独手动安装]
 
 #### SDKMAN安装
 
@@ -139,6 +143,7 @@ sdkman 如果官方仓库源太慢，建议使用 “本地版本” 安装的�
         ```
 
 [SDK 本地版本安装]: #sdk-local-install
+[单独手动安装]: #sdk-manual-install
 
 #### SDK 本地版本安装 {: #sdk-local-install}
 
@@ -184,7 +189,7 @@ commands:
 ```
 <!-- markdownlint-enable MD013 -->
 
-### 单独安装
+### 单独手动安装 {: #sdk-manual-install}
 
 单独安装 sdk 请参阅 官方文档。本节不做描述。
 
