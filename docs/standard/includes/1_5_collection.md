@@ -156,7 +156,7 @@
     | ConcurrentHashMap   | :material-close:   | :material-close:  | AbstractMap     | 锁分段技术（JDK8:CAS）     |
     | TreeMap             | :material-close:   | :material-check:  | AbstractMap     | 线程不安全                |
     | HashMap             | :material-check:   | :material-check:  | AbstractMap     | 线程不安全                |
-<!-- markdownlint-disable MD013 -->
+<!-- markdownlint-enable MD013 -->
     !!! fail "反例"
          由于 `HashMap` 的干扰，很多人认为 `ConcurrentHashMap` 是可以置入 `null` 值，
          而事实上，存储 `null` 值时会抛出 `NPE` 异常。
@@ -164,7 +164,7 @@
 1. **【参考】** 合理利用好集合的有序性(`sort`)和稳定性(`order`)，避免集合的无序性(`unsort`)和不稳定性(`unorder)`带来的负面影响。
 
     !!! note "说明"
-        有序性是指遍历的结果是按某种比较规则依次排列的。稳定性指集合每次遍历的元素次序是一定的。如：`ArrayList` 是 `order/unsort` ；
-        `HashMap` 是 `unorder/unsort`；`TreeSet` 是`order/sort`。
+        有序性是指遍历的结果是按某种比较规则依次排列的。稳定性指集合每次遍历的元素次序是一定的。如：`ArrayList`
+        是 `order/unsort` ；`HashMap` 是 `unorder/unsort`；`TreeSet` 是`order/sort`。
 
 1. **【参考】** 利用 `Set` 元素唯一的特性，可以快速对一个集合进行去重操作，避免使用 `List` 的 `contains` 方法进行遍历、对比、去重操作。
