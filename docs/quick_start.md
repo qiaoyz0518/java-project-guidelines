@@ -1,8 +1,13 @@
 # 快速上手
 
-TO DO
+本章将教你如何使用  Gradle 创建一个 Spring Boot 应用程序。
 
 ## 开发环境准备
+
+- gradle： 
+- jdk
+- maven
+- spring boot
 
 ### 运行环境准备
 JDK、Maven、Gradle
