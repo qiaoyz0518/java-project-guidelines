@@ -390,7 +390,7 @@ Advanced system settings（高级系统设置） -> Environment Variables（环�
 最简单的项目 脚本如下：
 
 ```groovy
-plugins {                                                             #(1)
+plugins {                                                             // (1)
     id 'org.springframework.boot' version '2.4.12'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
@@ -400,11 +400,11 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-repositories {                                                      #(2) 
+repositories {                                                      // (2) 
     mavenCentral()
 }
 
-dependencies {                                                     #(3) 
+dependencies {                                                     // (3) 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
@@ -415,16 +415,11 @@ test {
 
 ```
 
-
-``` yaml
-theme:
-  features:
-    - content.code.annotate # (1)
-```
-
 1. 项目插件管理.
-1. 依赖包仓库源；
-1. 依赖。
+
+2. 依赖包仓库源；
+
+3. 依赖。
   
 ### 构建项目
 

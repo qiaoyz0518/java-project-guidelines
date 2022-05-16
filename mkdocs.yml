@@ -79,22 +79,24 @@ extra:
 
 # Extensions
 markdown_extensions:
-  - pymdownx.snippets
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
   - admonition
   - abbr
-  - attr_list
   - def_list
   - footnotes
   - meta
-  - md_in_html
-  - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.tabbed
   - pymdownx.tilde 
   - toc:
       permalink: true
@@ -127,5 +129,13 @@ nav:
       - 语言规范: standard/language_rules.md
       - 风格规范: standard/style_rules.md
       - 其他规范: standard/other_standard.md
-    - 工程化: project/index.md
+    - 工程化:
+      - 初级教程:
+        - 前置条件: project/basic/requirements.md
+        - 初始化: project/basic/init.md
+        - 开发: project/basic/developments.md
+        - 测试: project/basic/testing.md
+        - 发布: project/basic/publish.md
+      - 进阶教程: project/advance.md
+      - 工程管理: project/manage.md
     - 开发实践: practice/index.md
