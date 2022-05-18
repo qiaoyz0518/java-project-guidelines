@@ -263,7 +263,12 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'cn.tendata.jstart'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+bootJar {
+    launchScript()
+}
 
 repositories {
     mavenCentral()
@@ -276,6 +281,15 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+```
+
+运行 Spring Boot 应用程序除了 `java -jar` 命令外，boot plugin 还为 Unix 系统制作完全可执行的应用程序。完全可执行的 jar 可以像任何其他可执行二进制文件一样执行，也可以使用或注册init.dsystemd。这使得在常见的生产环境中安装和管理 Spring Boot 应用程序变得非常容易。
+
+对于gradle 配置
+```groovy
+bootJar {
+    launchScript()
+}
 ```
 
 ### 验证
