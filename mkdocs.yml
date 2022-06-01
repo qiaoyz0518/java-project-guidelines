@@ -136,6 +136,13 @@ nav:
         - 开发: project/basic/developments.md
         - 测试: project/basic/testing.md
         - 发布: project/basic/publish.md
-      - 进阶教程: project/advance.md
-      - 工程管理: project/manage.md
+      - 进阶教程: 
+        - 配置: project/advance/setting.md
+        - 异常: project/advance/exception.md
+        - 日志: project/advance/log.md
+        - 测试: project/advance/testing.md
+      - 工程管理: 
+        - 代码检测: project/manage/lint.md
+        - 项目结构: project/manage/structure.md
+        - 文档管理: project/manage/documentation.md
     - 开发实践: practice/index.md

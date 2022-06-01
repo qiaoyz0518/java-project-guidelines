@@ -112,13 +112,15 @@ BOOT-INF/layers.idx
 您应该看到所需的清单文件ー manifest.mf ー和编译后的 Library 类
 
 ## 注册服务
+1. 上传jar 包到Web服务器，目录为 `~/server/tendata/jstart`,并修改名称为 `tendata-jstart.jar`,并使用命令 `sudo chmod +x tendata-jstart.jar` 为其授予执行权限。
+
 
 1. 进入Web服务器目录
     ```bash
      $ cd /usr/lib/systemd/system
     ```
 
-2. copy 以下内容到 `tendata-jstart.service` 文件中（服务名 `tendata-jstart` ）
+1. copy 以下内容到 `tendata-jstart.service` 文件中（服务名 `tendata-jstart` ）
     ```ini
     [Unit]
     Description=tendata java start project
@@ -133,10 +135,9 @@ BOOT-INF/layers.idx
     [Install]
     WantedBy=multi-user.target
     ```
-3. 执行权限
-    ```bash
-    $ sudo chmod +x tendata-jstart.service   
-    ```
+
+!!! tip
+    在web服务器可以使用 `sudo systemctl start tendata-jstart` 单独启动服务。
 
 ## 配置 jekins
 
@@ -175,8 +176,9 @@ pipeline {
 ```
 
 在本脚本中， 主要有以下几个操作:
+
 1. 使用 jenkins 的 git 插件；
 1. 从 Git 仓库检出 项目代码；
 1. 将检出代码构建为jar 包；
 1. 将jar 复制到远程web服务器；
-1. 运行运行脚本启动 `tendata-jstart` 服务。
+1. 运行脚本启动 `tendata-jstart` 服务。
