@@ -80,7 +80,7 @@ extra:
 # Extensions
 markdown_extensions:
   - pymdownx.highlight:
-      anchor_linenums: true
+      # anchor_linenums: true
   - attr_list
   - md_in_html
   - pymdownx.superfences
@@ -144,5 +144,5 @@ nav:
       - 工程管理: 
         - 代码检测: project/manage/lint.md
         - 项目结构: project/manage/structure.md
-        - 文档管理: project/manage/documentation.md
+        # - 文档管理: project/manage/documentation.md
     - 开发实践: practice/index.md
