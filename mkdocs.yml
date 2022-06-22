@@ -57,10 +57,13 @@ plugins:
       redirect_maps:
   - minify:
       minify_html: true
+  - enumerate-headings:
+      toc_depth: 3
+      strict: true
 
 # Customization
 extra:
-  disqus: !ENV [DISQUS_ACCOUNT,"tendata-doc"]
+  # disqus: !ENV [DISQUS_ACCOUNT,"tendata-doc"]
   analytics:
     provider: google
     property: !ENV [GOOGLE_ANALYTICS_KEY,"G-DF2YRJ16JT"]
@@ -76,42 +79,47 @@ extra:
 
 # Extensions
 markdown_extensions:
+  - pymdownx.highlight:
+      # anchor_linenums: true
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
   - admonition
   - abbr
-  - attr_list
   - def_list
   - footnotes
   - meta
-  - md_in_html
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tilde 
   - toc:
       permalink: true
+  - pymdownx.snippets:
+      base_path: docs      
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.caret
-  - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: squidfunk
       repo: mkdocs-material
-  - pymdownx.mark
-  - pymdownx.smartsymbols
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid-experimental
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde    
 
 # 导航
 nav:
@@ -119,7 +127,22 @@ nav:
     - 开发准备: preparation/index.md
     - Java 规范:
       - 语言规范: standard/language_rules.md
-      - 分格规范: standard/style_rules.md
+      - 风格规范: standard/style_rules.md
       - 其他规范: standard/other_standard.md
-    - 工程化: project/index.md
+    - 工程化:
+      - 初级教程:
+        - 前置条件: project/basic/requirements.md
+        - 初始化: project/basic/init.md
+        - 开发: project/basic/developments.md
+        - 测试: project/basic/testing.md
+        - 发布: project/basic/publish.md
+      - 进阶教程: 
+        - 配置: project/advance/setting.md
+        - 异常: project/advance/exception.md
+        - 日志: project/advance/log.md
+        - 测试: project/advance/testing.md
+      - 工程管理: 
+        - 代码检测: project/manage/lint.md
+        - 项目结构: project/manage/structure.md
+        # - 文档管理: project/manage/documentation.md
     - 开发实践: practice/index.md
