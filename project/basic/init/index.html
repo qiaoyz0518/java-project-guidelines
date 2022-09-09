@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en"> <head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="Java开发组技术文档目前规划建设中，初期建设基本的入门步骤，代码风格，工具集合等，后期将完善技术积累等过程" name="description"/><link href="https://qiaoyz0518.github.io/java-project-guidelines/project/basic/init/" rel="canonical"/><link href="../../../assets/images/favicon.ico" rel="icon"/><meta content="mkdocs-1.3.1, mkdocs-material-8.4.3" name="generator"/><title>初始化 - Java 项目工程化开发指南</title><link href="../../../assets/stylesheets/main.6b80c2a2.min.css" rel="stylesheet"/><link href="../../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script><script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DF2YRJ16JT"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DF2YRJ16JT",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DF2YRJ16JT",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script><script>"undefined"!=typeof __md_analytics&&__md_analytics()</script></head> <body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr"> <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script> <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/> <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/> <label class="md-overlay" for="__drawer"></label> <div data-md-component="skip"> <a class="md-skip" href="#_1">7.1  Skip to content </a> </div> <div data-md-component="announce"> </div> <header class="md-header md-header--lifted" data-md-component="header"> <nav aria-label="Header" class="md-header__inner md-grid"> <a aria-label="Java 项目工程化开发指南" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Java 项目工程化开发指南"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg> </a> <label class="md-header__button md-icon" for="__drawer"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg> </label> <div class="md-header__title" data-md-component="header-title"> <div class="md-header__ellipsis"> <div class="md-header__topic"> <span class="md-ellipsis"> Java 项目工程化开发指南 </span> </div> <div class="md-header__topic" data-md-component="header-topic"> <span class="md-ellipsis"> 初始化 </span> </div> </div> </div> <form class="md-header__option" data-md-component="palette"> <input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/> <label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg> </label> <input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/> <label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg> </label> </form> <label class="md-header__button md-icon" for="__search"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg> </label> <div class="md-search" data-md-component="search" role="dialog"> <label class="md-search__overlay" for="__search"></label> <div class="md-search__inner" role="search"> <form class="md-search__form" name="search"> <input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/> <label class="md-search__icon md-icon" for="__search"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg> </label> <nav aria-label="Search" class="md-search__options"> <a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg> </a> <button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg> </button> </nav> <div class="md-search__suggest" data-md-component="search-suggest"></div> </form> <div class="md-search__output"> <div class="md-search__scrollwrap" data-md-scrollfix=""> <div class="md-search-result" data-md-component="search-result"> <div class="md-search-result__meta"> Initializing search </div> <ol class="md-search-result__list"></ol> </div> </div> </div> </div> </div> <div class="md-header__source"> <a class="md-source" data-md-component="source" href="https://github.com/lwpk110/tendata-javadoc" title="Go to repository"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!-- Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </div> <div class="md-source__repository"> lwpk110/tendata-javadoc </div> </a> </div> </nav> <nav aria-label="Tabs" class="md-tabs" data-md-component="tabs"> <div class="md-tabs__inner md-grid"> <ul class="md-tabs__list"> <li class="md-tabs__item"> <a class="md-tabs__link" href="../../../quick_start/"> 快速上手 </a> </li> <li class="md-tabs__item"> <a class="md-tabs__link" href="../../../preparation/"> 开发准备 </a> </li> <li class="md-tabs__item"> <a class="md-tabs__link" href="../../../standard/language_rules/"> Java 规范 </a> </li> <li class="md-tabs__item"> <a class="md-tabs__link md-tabs__link--active" href="../requirements/"> 工程化 </a> </li> <li class="md-tabs__item"> <a class="md-tabs__link" href="../../../practice/"> 开发实践 </a> </li> </ul> </div> </nav> </header> <div class="md-container" data-md-component="container"> <main class="md-main" data-md-component="main"> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation"> <div class="md-sidebar__scrollwrap"> <div class="md-sidebar__inner"> <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0"> <label class="md-nav__title" for="__drawer"> <a aria-label="Java 项目工程化开发指南" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Java 项目工程化开发指南"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg> </a> Java 项目工程化开发指南 </label> <div class="md-nav__source"> <a class="md-source" data-md-component="source" href="https://github.com/lwpk110/tendata-javadoc" title="Go to repository"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!-- Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </div> <div class="md-source__repository"> lwpk110/tendata-javadoc </div> </a> </div> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../../quick_start/"> 快速上手 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../../preparation/"> 开发准备 </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/> <label class="md-nav__link" for="__nav_3"> Java 规范 <span class="md-nav__icon md-icon"></span> </label> <nav aria-label="Java 规范" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_3"> <span class="md-nav__icon md-icon"></span> Java 规范 </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../../standard/language_rules/"> 语言规范 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../../standard/style_rules/"> 风格规范 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../../standard/other_standard/"> 其他规范 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/> <label class="md-nav__link" for="__nav_4"> 工程化 <span class="md-nav__icon md-icon"></span> </label> <nav aria-label="工程化" class="md-nav" data-md-level="1"> <label class="md-nav__title" for="__nav_4"> <span class="md-nav__icon md-icon"></span> 工程化 </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested"> <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/> <label class="md-nav__link" for="__nav_4_1"> 初级教程 <span class="md-nav__icon md-icon"></span> </label> <nav aria-label="初级教程" class="md-nav" data-md-level="2"> <label class="md-nav__title" for="__nav_4_1"> <span class="md-nav__icon md-icon"></span> 初级教程 </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../requirements/"> 前置条件 </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/> <label class="md-nav__link md-nav__link--active" for="__toc"> 初始化 <span class="md-nav__icon md-icon"></span> </label> <a class="md-nav__link md-nav__link--active" href="./"> 初始化 </a> <nav aria-label="Table of contents" class="md-nav md-nav--secondary"> <label class="md-nav__title" for="__toc"> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="#_1">7.1  创建项目文件目录 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#gradle">7.2  运行 gradle 初始化任务 </a> <nav aria-label="运行 gradle  初始化任务" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#settingsgradle">7.2.1  settings.gradle </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#buildgradle">7.2.2  build.gradle </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#gradle-wrapper">7.2.3  gradle wrapper 相关 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#gitignore">7.2.4  .gitignore </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#_2">7.3  配置 </a> <nav aria-label="配置" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#_3">7.3.1  创建源码目录结构 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#_4">7.3.2  配置构建脚本 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#_5">7.3.3  验证 </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../developments/"> 开发 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../testing/"> 测试 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../publish/"> 发布 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/> <label class="md-nav__link" for="__nav_4_2"> 进阶教程 <span class="md-nav__icon md-icon"></span> </label> <nav aria-label="进阶教程" class="md-nav" data-md-level="2"> <label class="md-nav__title" for="__nav_4_2"> <span class="md-nav__icon md-icon"></span> 进阶教程 </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../advance/setting/"> 配置 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../advance/exception/"> 异常 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../advance/log/"> 日志 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../advance/testing/"> 测试 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--section md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/> <label class="md-nav__link" for="__nav_4_3"> 工程管理 <span class="md-nav__icon md-icon"></span> </label> <nav aria-label="工程管理" class="md-nav" data-md-level="2"> <label class="md-nav__title" for="__nav_4_3"> <span class="md-nav__icon md-icon"></span> 工程管理 </label> <ul class="md-nav__list" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="../../manage/lint/"> 代码检测 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../manage/structure/"> 项目结构 </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="../../../practice/"> 开发实践 </a> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc"> <div class="md-sidebar__scrollwrap"> <div class="md-sidebar__inner"> <nav aria-label="Table of contents" class="md-nav md-nav--secondary"> <label class="md-nav__title" for="__toc"> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix=""> <li class="md-nav__item"> <a class="md-nav__link" href="#_1">7.1  创建项目文件目录 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#gradle">7.2  运行 gradle 初始化任务 </a> <nav aria-label="运行 gradle  初始化任务" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#settingsgradle">7.2.1  settings.gradle </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#buildgradle">7.2.2  build.gradle </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#gradle-wrapper">7.2.3  gradle wrapper 相关 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#gitignore">7.2.4  .gitignore </a> </li> </ul> </nav> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#_2">7.3  配置 </a> <nav aria-label="配置" class="md-nav"> <ul class="md-nav__list"> <li class="md-nav__item"> <a class="md-nav__link" href="#_3">7.3.1  创建源码目录结构 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#_4">7.3.2  配置构建脚本 </a> </li> <li class="md-nav__item"> <a class="md-nav__link" href="#_5">7.3.3  验证 </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-content" data-md-component="content"> <article class="md-content__inner md-typeset"> <h1><span class="enumerate-headings-plugin enumerate-heading-plugin">7.</span> 初始化</h1> <h2 id="_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.1</span> 创建项目文件目录<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2> <p>Gradle 内置一个 <code>init</code> 任务 ，它在一个空文件夹中初始化一个新的 Gradle 项目。 <code>Init</code> 任务 使用(也是内置的) <code>wrapper</code> 任务 创建 Gradle wrapper 脚本 - <code>gradlew</code> 文件。</p> <ol> <li> <p>创建新项目文件夹 <code>tendata-jstart</code>；</p> <div class="highlight"><pre><span></span><code>mkdir tendata-jstart
+</code></pre></div> </li> <li> <p>进入 新项目文件夹；</p> <div class="highlight"><pre><span></span><code><span class="nb">cd</span> tendata-jstart
+</code></pre></div> </li> </ol> <h2 id="gradle"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2</span> 运行 gradle 初始化任务<a class="headerlink" href="#gradle" title="Permanent link">¶</a></h2> <ol> <li>在新项目目录中，在终端中使用以下命令运行 init 任务: <code>gradle init</code>，根据提示选择相应的选项。 由于gradle init 初始化的源码目录结构和现有目录结构 不相匹配，选择 项目类型时，选择 <code>1</code> - <code>basic</code> 类型即可；构建脚本选择 <code>groovy</code>;其他选择默认即可。</li> </ol> <p>输出如下：</p> <div class="highlight"><pre><span></span><code>$ gradle init
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+Select type of project to generate:
+  1: basic
+  2: application
+  3: library
+  4: Gradle plugin
+Enter selection (default: basic) [1..4] 1
+
+Select build script DSL:
+  1: Groovy
+  2: Kotlin
+Enter selection (default: Groovy) [1..2] 1
+
+Generate build using new APIs and behavior (some features may change in the next minor release)? (default: no) [yes, no]
+
+Project name (default: tendata-jstart):
+
+
+&gt; Task :init
+Get more help with your project: Learn more about Gradle by exploring our samples at https://docs.gradle.org/7.4.2/samples
+
+BUILD SUCCESSFUL in 4m 26s
+2 actionable tasks: 2 executed
+</code></pre></div> <p><code>init</code> 任务输出如下项目结构</p> <div class="highlight"><pre><span></span><code>.
+├── .gitattributes   
+├── .gitignore                <span class="c1"># (1)</span>
+├── .gradle
+├── build.gradle              <span class="c1"># (2)</span>
+├── gradle                    <span class="c1"># (3)           </span>
+│  └── wrapper
+│      ├── gradle-wrapper.jar
+│      └── gradle-wrapper.properties
+├── gradlew                  <span class="c1"># (4)</span>
+├── gradlew.bat
+└── settings.gradle          <span class="c1"># (5)</span>
+
+<span class="m">3</span> directories, <span class="m">8</span> files
+</code></pre></div> <ol> <li>git 提交忽略 配置文件；</li> <li>项目构建文件；</li> <li>gradle wrapper 文件包；</li> <li>gradle wrapper 脚本文件, <code>windows</code> 使用 <code>gradlew.bat</code> 文件 ；</li> <li>gradle 定义生成名称和子项目的配置文件；</li> </ol> <h3 id="settingsgradle"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2.1</span> <code>settings.gradle</code><a class="headerlink" href="#settingsgradle" title="Permanent link">¶</a></h3> <p><code>settings.gradle</code> 主要包含两个方面的作用:</p> <ol> <li>设置顶层项目名称，使用 <code>rootProject.name</code>；</li> <li>组织子项目模块， 使用 <code>include</code> 方法；</li> </ol> <p>常见的属性配置有: <div class="highlight"><pre><span></span><code><span class="n">rootProject</span><span class="o">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'demo'</span><span class="w"></span>
+
+<span class="n">include</span><span class="o">(</span><span class="s1">'app1'</span><span class="o">)</span><span class="w"></span>
+<span class="n">include</span><span class="o">(</span><span class="s1">'app2'</span><span class="o">)</span><span class="w"></span>
+</code></pre></div> 该段配置表示 一个demo名称的项目包含 <code>app1</code>, <code>app2</code> 两个功能模块：</p> <ul> <li><code>rootProject.name</code> - 为构建分配一个名称，这将覆盖以其所在目录命名构建的默认行为。建议设置一个固定的名称，因为如果项目是共享的，那么文件夹可能会发生变化——例如作为 Git 存储库的根目录</li> <li><code>include</code>: 定义一个子项目模块 例如 <code>app1</code> 包含在顶层项目中；</li> </ul> <h3 id="buildgradle"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2.2</span> build.gradle<a class="headerlink" href="#buildgradle" title="Permanent link">¶</a></h3> <p><code>build.gradle</code> 作为项目的构建脚本，定义了项目的构建，运行环境，包依赖，以及打包规则等。相较以前的maven，ant 构建来说，依托于 灵活的 <code>groovy</code> 脚本语言和强大的插件功能，使得gradle 在项目构建方面更加灵活，但是也提高开发人员的学习门槛。</p> <p>常见的配置如下： <div class="highlight"><pre><span></span><code><span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">'java'</span><span class="w">              </span><span class="c1">// (1)</span><span class="w"></span>
+<span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">'eclipse'</span><span class="w"></span>
+<span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">'application'</span><span class="w"></span>
+
+<span class="n">mainClassName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'hello.HelloWorld'</span><span class="w">    </span><span class="c1">// (2)</span><span class="w"></span>
+
+<span class="n">repositories</span><span class="w"> </span><span class="o">{</span><span class="w">                        </span><span class="c1">// (3) </span><span class="w"></span>
+<span class="w">    </span><span class="n">mavenCentral</span><span class="o">()</span><span class="w"> </span>
+<span class="o">}</span><span class="w"></span>
+
+<span class="n">jar</span><span class="w"> </span><span class="o">{</span><span class="w">                                 </span><span class="c1">// (4)</span><span class="w"></span>
+<span class="w">    </span><span class="n">archiveBaseName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'gs-gradle'</span><span class="w"></span>
+<span class="w">    </span><span class="n">archiveVersion</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s1">'0.1.0'</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+
+<span class="n">sourceCompatibility</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.8</span><span class="w">             </span><span class="c1">//(5)</span><span class="w"></span>
+<span class="n">targetCompatibility</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.8</span><span class="w"></span>
+
+<span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w">                        </span><span class="c1">// (6)</span><span class="w"></span>
+<span class="w">    </span><span class="n">implementation</span><span class="w"> </span><span class="s2">"joda-time:joda-time:2.2"</span><span class="w"></span>
+<span class="w">    </span><span class="n">testImplementation</span><span class="w"> </span><span class="s2">"junit:junit:4.12"</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+</code></pre></div></p> <ol> <li>使用 插件；</li> <li>项目入口类；</li> <li>依赖库仓库源；</li> <li>打包方式类型；</li> <li>依赖jdk 版本；</li> <li>依赖库声明；</li> </ol> <h3 id="gradle-wrapper"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2.3</span> gradle wrapper 相关<a class="headerlink" href="#gradle-wrapper" title="Permanent link">¶</a></h3> <p>在以gradle 作为构建项目的最佳实践中，建议以gradle wrapper 作为构建任何任务的做法。gradle wrapper 脚本会检测 <code>GRADLE_USER_HOME</code> 中 是否包含 项目预先制定的gradle 版本 ，如果没有会下载指定版本的gradle 到 <code>GRADLE_USER_HOME</code> 中。因此开发人员可以快速启动项目，而不需要配置安装复杂的gradle 环境。 </p> <p><img alt="gradlew 原理" src="../../../assets/images/gradlew.png"/></p> <ul> <li><code>gradle-wrapper.jar</code> - 用于运行 wrapper 功能的 api 功能代码 jar 包。</li> <li><code>gradle-wrapper.properties</code> 负责配置 Wrapper 运行时行为的属性文件，例如与此版本兼容的 Gradle 版本，下载地址等</li> <li><code>gradlew</code>,<code>gradlew.bat</code> 用于使用 Wrapper 执行构建的 shell 脚本和 Windows 批处理脚本。</li> </ul> <h3 id="gitignore"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2.4</span> .gitignore<a class="headerlink" href="#gitignore" title="Permanent link">¶</a></h3> <p><code>gitignore</code> 文件的目的是确保某些未被 Git 跟踪的文件 保持不被Git 跟踪,下次提交的时候不会出现在 git commit 的列表中。</p> <p>要停止跟踪当前跟踪的文件，请使用 <code>git rm --cached xxx.txt</code>。</p> <p>常见的 <code>.gitignore</code> 文件参考如下： <div class="highlight"><pre><span></span><code>HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+</code></pre></div></p> <h2 id="_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3</span> 配置<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2> <h3 id="_3"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3.1</span> 创建源码目录结构<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3> <p>在项目根目录创建以下目录,或者在 Linux 终端使用 命令 创建 <code>mkdir -p src/main/java src/main/resources src/test/java src/test/resources</code></p> <ul> <li><code>src/main/java</code>: java 源码目录；</li> <li><code>src/main/resources</code>: 项目静态资源配置文件目录；</li> <li><code>src/test/java</code>: 单元测试源码目录；</li> <li><code>src/test/resources</code>: 单元测试配置文件目录；</li> </ul> <p>构建后的项目结构如下:</p> <div class="highlight"><pre><span></span><code>.
+├── .gitattributes
+├── .gitignore
+├── .gradle
+├── build.gradle
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── settings.gradle
+└── src
+    ├── main
+    │   ├── java                          <span class="c1"># (1)</span>
+    │   └── resources                     <span class="c1"># (2)</span>
+    └── <span class="nb">test</span>
+        ├── java                          <span class="c1"># (3)</span>
+        └── resources                     <span class="c1"># (4)</span>
+</code></pre></div> <ol> <li>java 源码目录；</li> <li>项目静态资源配置文件目录；</li> <li>单元测试源码目录；</li> <li>单元测试配置文件目录；</li> </ol> <h3 id="_4"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3.2</span> 配置构建脚本<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3> <p>一般的一个基本的gradle 项目构建包含 插件，依赖配置，依赖配置仓库，打包，任务等组成。如果需要更加复杂的项目构建，可以参考 <a href="https://docs.gradle.org/current/userguide/what_is_gradle.html">gradle官方文档</a>.</p> <p>一个最简单的项目构建脚本如下可以参考 <a href="#buildgradle">7.2.2 build.gradle 文件</a> 章节</p> <p>本章节，我们可以根据实际情况更改我们的配置:</p> <ol> <li>使用 <code>idea</code>， <code>java</code>, <code>spring-boot</code> 等 插件；</li> <li>将仓库源设置为 <code>mavenLocal()</code> -&gt; <code>aliyun</code> -&gt; <code>mavenCentern()</code>;</li> <li>添加 spring web 开发依赖包；</li> </ol> <p>最终配置如下:</p> <div class="highlight"><pre><span></span><code><span class="n">plugins</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'org.springframework.boot'</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s1">'2.6.7'</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'io.spring.dependency-management'</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s1">'1.0.11.RELEASE'</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="s1">'java'</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+
+<span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">'idea'</span><span class="w"></span>
+<span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">'eclipse'</span><span class="w"></span>
+<span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">'java'</span><span class="w"></span>
+<span class="n">apply</span><span class="w"> </span><span class="nl">plugin:</span><span class="w"> </span><span class="s1">'io.spring.dependency-management'</span><span class="w"></span>
+
+<span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'cn.tendata.jstart'</span><span class="w"></span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'0.0.1-SNAPSHOT'</span><span class="w"></span>
+<span class="n">sourceCompatibility</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.8</span><span class="w"></span>
+<span class="n">targetCompatibility</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.8</span><span class="w"></span>
+
+<span class="n">bootJar</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">launchScript</span><span class="o">()</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+
+<span class="n">repositories</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">mavenCentral</span><span class="o">()</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+
+<span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+
+<span class="n">tasks</span><span class="o">.</span><span class="na">named</span><span class="o">(</span><span class="s1">'test'</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">useJUnitPlatform</span><span class="o">()</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+</code></pre></div> <p>运行 Spring Boot 应用程序除了 <code>java -jar</code> 命令外，boot plugin 还为 Unix 系统制作完全可执行的应用程序。完全可执行的 jar 可以像任何其他可执行二进制文件一样执行，也可以使用或注册init.dsystemd。这使得在常见的生产环境中安装和管理 Spring Boot 应用程序变得非常容易。</p> <p>对于gradle 配置 <div class="highlight"><pre><span></span><code><span class="n">bootJar</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">launchScript</span><span class="o">()</span><span class="w"></span>
+<span class="o">}</span><span class="w"></span>
+</code></pre></div></p> <h3 id="_5"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3.3</span> 验证<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3> <p>验证初始化环境从以下几个 方法来验证：</p> <ol> <li>验证 gradle wrapper H环境是否安装正确:</li> </ol> <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">linux</label><label for="__tabbed_1_2">windows</label></div> <div class="tabbed-content"> <div class="tabbed-block"> <div class="highlight"><pre><span></span><code>./gradlew  --version
+</code></pre></div> </div> <div class="tabbed-block"> <div class="highlight"><pre><span></span><code>./gradlew.bat  --version
+</code></pre></div> </div> </div> </div> <p>显示如下结果，表示安装成功: <div class="highlight"><pre><span></span><code>  ------------------------------------------------------------
+  Gradle <span class="m">7</span>.4.2
+  ------------------------------------------------------------
+
+  Build time:   <span class="m">2022</span>-03-31 <span class="m">15</span>:25:29 UTC
+  Revision:     540473b8118064efcc264694cbcaa4b677f61041
+
+  Kotlin:       <span class="m">1</span>.5.31
+  Groovy:       <span class="m">3</span>.0.9
+  Ant:          Apache Ant<span class="o">(</span>TM<span class="o">)</span> version <span class="m">1</span>.10.11 compiled on July <span class="m">10</span> <span class="m">2021</span>
+  JVM:          <span class="m">1</span>.8.0_282 <span class="o">(</span>Eclipse OpenJ9 openj9-0.24.0<span class="o">)</span>
+  OS:           Windows <span class="m">8</span>.1 <span class="m">6</span>.3 amd64
+</code></pre></div> 2. 查看gradle 任务:</p> <div class="highlight"><pre><span></span><code>./gradlew tasks
+</code></pre></div> <p>显示如下结果: <div class="highlight"><pre><span></span><code> luwei@DESKTOP-TDFJPJJ            tendata-jstart  .<span class="se">\g</span>radlew.bat tasks
+
+&gt; Task :tasks
+
+------------------------------------------------------------
+Tasks runnable from root project <span class="s1">'tendata-jstart'</span>
+------------------------------------------------------------
+
+Application tasks
+-----------------
+bootRun - Runs this project as a Spring Boot application.
+
+Build tasks
+-----------
+assemble - Assembles the outputs of this project.
+bootBuildImage - Builds an OCI image of the application using the output of the bootJar task
+bootJar - Assembles an executable jar archive containing the main classes and their dependencies.
+bootJarMainClassName - Resolves the name of the application<span class="s1">'s main class for the bootJar task.</span>
+<span class="s1">bootRunMainClassName - Resolves the name of the application'</span>s main class <span class="k">for</span> the bootRun task.
+build - Assembles and tests this project.
+buildDependents - Assembles and tests this project and all projects that depend on it.
+buildNeeded - Assembles and tests this project and all projects it depends on.
+classes - Assembles main classes.
+clean - Deletes the build directory.
+jar - Assembles a jar archive containing the main classes.
+testClasses - Assembles <span class="nb">test</span> classes.
+
+Build Setup tasks
+-----------------
+init - Initializes a new Gradle build.
+wrapper - Generates Gradle wrapper files.
+
+Documentation tasks
+-------------------
+javadoc - Generates Javadoc API documentation <span class="k">for</span> the main <span class="nb">source</span> code.
+
+Help tasks
+----------
+buildEnvironment - Displays all buildscript dependencies declared <span class="k">in</span> root project <span class="s1">'tendata-jstart'</span>.
+dependencies - Displays all dependencies declared <span class="k">in</span> root project <span class="s1">'tendata-jstart'</span>.
+dependencyInsight - Displays the insight into a specific dependency <span class="k">in</span> root project <span class="s1">'tendata-jstart'</span>.
+dependencyManagement - Displays the dependency management declared <span class="k">in</span> root project <span class="s1">'tendata-jstart'</span>.
+<span class="nb">help</span> - Displays a <span class="nb">help</span> message.
+javaToolchains - Displays the detected java toolchains.
+outgoingVariants - Displays the outgoing variants of root project <span class="s1">'tendata-jstart'</span>.
+projects - Displays the sub-projects of root project <span class="s1">'tendata-jstart'</span>.
+properties - Displays the properties of root project <span class="s1">'tendata-jstart'</span>.
+tasks - Displays the tasks runnable from root project <span class="s1">'tendata-jstart'</span>.
+
+IDE tasks
+---------
+cleanEclipse - Cleans all Eclipse files.
+cleanIdea - Cleans IDEA project files <span class="o">(</span>IML, IPR<span class="o">)</span>
+eclipse - Generates all Eclipse files.
+idea - Generates IDEA project files <span class="o">(</span>IML, IPR, IWS<span class="o">)</span>
+openIdea - Opens the IDEA project
+
+Verification tasks
+------------------
+check - Runs all checks.
+<span class="nb">test</span> - Runs the <span class="nb">test</span> suite.
+
+Rules
+-----
+Pattern: clean&lt;TaskName&gt;: Cleans the output files of a task.
+Pattern: build&lt;ConfigurationName&gt;: Assembles the artifacts of a configuration.
+
+To see all tasks and more detail, run gradlew tasks --all
+
+To see more detail about a task, run gradlew <span class="nb">help</span> --task &lt;task&gt;
+
+BUILD SUCCESSFUL <span class="k">in</span> 2s
+<span class="m">1</span> actionable task: <span class="m">1</span> executed
+</code></pre></div></p> </article> <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script> </div> </div> <a class="md-top md-icon" data-md-component="top" hidden="" href="#"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg> Back to top </a> </main> <footer class="md-footer"> <nav aria-label="Footer" class="md-footer__inner md-grid"> <a aria-label="Previous: 前置条件" class="md-footer__link md-footer__link--prev" href="../requirements/" rel="prev"> <div class="md-footer__button md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg> </div> <div class="md-footer__title"> <div class="md-ellipsis"> <span class="md-footer__direction"> Previous </span> 前置条件 </div> </div> </a> <a aria-label="Next: 开发" class="md-footer__link md-footer__link--next" href="../developments/" rel="next"> <div class="md-footer__title"> <div class="md-ellipsis"> <span class="md-footer__direction"> Next </span> 开发 </div> </div> <div class="md-footer__button md-icon"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg> </div> </a> </nav> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class="md-copyright"> <div class="md-copyright__highlight"> Copyright © 2021-2300 Tendata Javer </div> Made with <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank"> Material for MkDocs </a> </div> <div class="md-social"> <a class="md-social__link" href="https://github.com/tendata" rel="noopener" target="_blank" title="github.com"> <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!-- Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> </a> <a class="md-social__link" href="https://tendata.cn" rel="noopener" target="_blank" title="tendata.cn"> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2 0-.68.06-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.923 7.923 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8.008 8.008 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.65 15.65 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"></path></svg> </a> <a class="md-social__link" href="mailto: wei.lu@tendata.cn" rel="noopener" target="_blank" title=""> <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"></path></svg> </a> <a class="md-social__link" href="http://wpa.qq.com/msgrd?v=3&amp;uin=250397846&amp;site=qq&amp;menu=yes" rel="noopener" target="_blank" title="wpa.qq.com"> <svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!-- Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path></svg> </a> </div> </div> </div> </footer> </div> <div class="md-dialog" data-md-component="dialog"> <div class="md-dialog__inner md-typeset"></div> </div> <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.sections", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.tabs.link", "navigation.tracking", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script> <script src="../../../assets/javascripts/bundle.2ab50757.min.js"></script> </body> </html>
